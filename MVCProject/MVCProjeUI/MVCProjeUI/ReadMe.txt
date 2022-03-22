@@ -39,3 +39,34 @@ Katmanın içine Concrete klasör oluşturduk.
 			4.Content
 			5.About
 			6.Contact
+
+---ilişki oluşturma
+bire çok ilişkide
+bir olan tarafa koleksiyon ekliyoruz.
+
+ public ICollection<Heading> Headings{ get; set; }
+
+ çok tarafına bağlanılacak olan tablonun classı ve sutunu eklenir.
+
+ public int CategoryId { get; set; }//baglanacak sutun eklendi.
+ public virtual Category Category { get; set; }
+
+ --------entityLayer içindeki referanslara gelip Nuget e tıklayalım.
+ browser a gelip entity freamwork version : 6.4.4 seçilp yüklenecek.
+
+ -------------------
+ datalayer 
+ concrete dosyası açıldı. 
+ içiersine context class eklendi.
+ nuget pack. entityframework 6.4.4 yüklenecek
+ referanslardan entity layer katmanı eklendi
+ dbcontext i kalıtım oalarak ekledik
+
+
+ ----uı-----------
+ webconfig in içine connectionstring ekledik
+ initial cataglog içine veritabanına vermek istediğimiz name i yazdık
+
+
+ migration ekleme işlemi
+ view -> other windows -> pack. manager console a tıkla 
