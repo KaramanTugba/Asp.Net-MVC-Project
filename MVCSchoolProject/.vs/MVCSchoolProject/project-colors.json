@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "25809a6c-f9dd-42c1-b1a0-77478e49151c": {
+      "ProjectGuid": "25809a6c-f9dd-42c1-b1a0-77478e49151c",
+      "DisplayName": "EntityLayer",
+      "ColorIndex": 0
+    },
+    "04c7989a-6c75-4b2c-a183-382456677f69": {
+      "ProjectGuid": "04c7989a-6c75-4b2c-a183-382456677f69",
+      "DisplayName": "DataAccessLayer",
+      "ColorIndex": 1
+    },
+    "f9ea7bb7-6e5a-44d6-a2c5-b8e1b1047d5c": {
+      "ProjectGuid": "f9ea7bb7-6e5a-44d6-a2c5-b8e1b1047d5c",
+      "DisplayName": "MVCSchoolProject",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
