@@ -156,3 +156,16 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCPro
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\obj\Debug\MVCProjeUI.csproj.CopyComplete
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\obj\Debug\MVCProjeUI.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\obj\Debug\MVCProjeUI.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\BusinessLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\DataAccessLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityFramework.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityFramework.SqlServer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\BusinessLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\BusinessLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\DataAccessLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\DataAccessLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityFramework.xml
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\MVCProjeUI\bin\EntityFramework.SqlServer.xml

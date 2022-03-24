@@ -5,7 +5,6 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\Entity
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\bin\Debug\EntityFramework.xml
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\obj\Debug\EntityLayer.csproj.CopyComplete
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCProject\MVCProjeUI\EntityLayer\obj\Debug\EntityLayer.dll
