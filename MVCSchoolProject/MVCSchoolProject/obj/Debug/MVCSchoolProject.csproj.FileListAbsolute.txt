@@ -77,3 +77,16 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolPr
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\obj\Debug\MVCSchoolProject.csproj.CopyComplete
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\obj\Debug\MVCSchoolProject.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\obj\Debug\MVCSchoolProject.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\BusinessLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\DataAccessLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityLayer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityFramework.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\BusinessLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\DataAccessLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\DataAccessLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityFramework.xml
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityFramework.SqlServer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\BusinessLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityLayer.dll.config
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\MVCSchoolProject\bin\EntityFramework.SqlServer.xml

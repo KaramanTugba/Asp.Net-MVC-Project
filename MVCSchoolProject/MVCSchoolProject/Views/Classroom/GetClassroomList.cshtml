@@ -1,0 +1,24 @@
+﻿@using EntityLayer.Concrete;
+@model List<Classroom>
+@{
+    ViewBag.Title = "GetClassroomList";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+<h2>Classroom List</h2>
+<table class="table table-hover">
+    <tr>
+        <td>Classroom ID</td>
+        <td>Classroom Name</td>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ClassroomID</td>
+            <td>@item.ClassroomName</td>
+           
+        </tr>
+    }
+</table>

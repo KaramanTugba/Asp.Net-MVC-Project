@@ -12,3 +12,4 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\DataAccessL
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\MVCSchoolProject\DataAccessLayer\bin\Debug\EntityLayer.dll.config
