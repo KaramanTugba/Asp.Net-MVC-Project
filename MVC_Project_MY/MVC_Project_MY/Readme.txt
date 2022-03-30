@@ -6,6 +6,7 @@ New Project -> Asp.Net Web App.(.Net Framework)
 User Interface(MVC_Project_MY)
 
 Models = Veritabanına ait Entity dediğimiz kavramları tanımladığımız klasördür.
+we say that Entity term who belongs to database
 Views = FrontEnd part
 Controllers = BackEnd part
 
