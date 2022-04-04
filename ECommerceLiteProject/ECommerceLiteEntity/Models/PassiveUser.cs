@@ -1,0 +1,21 @@
+﻿using ECommerceLiteEntity.IdentityModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ECommerceLiteEntity.Models
+{
+    [Table("PassiveUser")]
+    public class PassiveUser: PersonBase
+    {
+
+        //Identity model ile bize verilen tablodaki ıd buraya foreignKey olacaktır.
+
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
+    }
+}
