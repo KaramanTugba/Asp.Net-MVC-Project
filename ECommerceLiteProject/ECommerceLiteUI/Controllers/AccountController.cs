@@ -172,12 +172,89 @@ namespace ECommerceLiteUI.Controllers
                     return View();
                 }
 
+                //not: beyin fırtınası yapılacak.
+                // Passive user null gelirse nasıl bir yol izlenir? passiveuser null gelmesi çok büyük bir problem mi?
+                //Customer da bu kişi kayıtlı mı? Customer a kayıtlı ise problem yok. Kayıtlı değilse problem yok.
+                return View();
             }
             catch (Exception ex)
             {
                 //todo: loglama yapılacak.
                 ModelState.AddModelError("", "Beklenmedik bir hata oluştu.");
                 return View();
+            }
+        }
+
+        [HttpGet]
+        [Authorize]//login olmadan buraya girmemesi için ( yetkin olmalı )
+        public ActionResult UserProfile()
+        {
+            //login olan kişinin id biligisini al
+            var user = myUserManager.FindById(HttpContext.User.Identity.GetUserId());
+            if (user!=null)
+            {
+                ProfileViewModel model = new ProfileViewModel()
+                {
+                    Name = user.Name,
+                    Surname=user.Surname,
+                    Email=user.Email,
+                    TCNumber=user.UserName
+                };
+                return View(model);
+            }
+            //user null ise
+            ModelState.AddModelError("", "Beklenmedik bir sorun oluşmuş olabilir mi? Giriş yapıp, tekrar deneyiniz");
+            return View();
+
+            // kişiyi bulacağız ve mevcut bilgilerini profileviewmodele atayıp sayfaya göndereceğiz.
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserProfile(ProfileViewModel model)
+        {
+            try
+            {
+                //sisteme kayıt olmuş, giriş yapmış kişi Hesabıma tıkladı.
+                //Bilgilerini gördü.Bilgilerinde değişiklik yaptı. Biz burada kontrol edeceğiz. Yapılan dedğişiklikleri tespit edip db i güncelleştireceğiz.
+
+                var user = myUserManager.FindById(HttpContext.User.Identity.GetUserId());
+                if (user==null)
+                {
+                    ModelState.AddModelError("", "Mevcut kullanıcı bilgilerinize ulaşılamadığı için işlem yapamıyoruz.");
+                    return View(model);
+                }
+                //bir user herhangi bir bilgisini değiştirecekse Parolasını girmek zorunda.
+                //Bu nedenle model ile gelen parola db deki parola ile eşleşiyor mu diye bakmak lazım...
+                if (myUserManager.PasswordHasher.VerifyHashedPassword(user.PasswordHash,model.Password)==PasswordVerificationResult.Failed)
+                {
+                    ModelState.AddModelError("", "Mevcut şifrenizi yanlış girdiğiniz için bilgilerinizi güncelleyemedik.Lütfen tekrar deneyiniz.");
+                    return View(model);
+                }
+                //başarılıysa yani parolayı doğru yazdı.//bilgileri güncelleyeceğiz
+
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                await myUserManager.UpdateAsync(user);
+                ViewBag.Result = "Bilgileriniz güncellendi";
+                var updatedModel = new ProfileViewModel()
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    TCNumber = user.UserName,
+                    Email = user.Email
+                };
+                return View(updatedModel);
+
+
+            }
+            catch (Exception ex)
+            {
+                //ex loglanacak
+                ModelState.AddModelError("", "Beklenmedik bir hata oluştu! Tekrar deneyiniz");
+                return View(model);
             }
         }
 
