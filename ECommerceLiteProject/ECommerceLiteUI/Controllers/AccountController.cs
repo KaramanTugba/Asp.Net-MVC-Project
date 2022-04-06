@@ -58,7 +58,9 @@ namespace ECommerceLiteUI.Controllers
                     ModelState.AddModelError("", "Bu email ile sisteme kayıt yapılmıştır.");
                     return View(model);
                 }
+                //aktivasyon kodu üretelim
 
+                var activationCode = Guid.NewGuid().ToString().Replace("-", "");
                 // artık sisteme kayıt olabilir
 
                 var newUser = new ApplicationUser()
@@ -66,14 +68,12 @@ namespace ECommerceLiteUI.Controllers
                     Name = model.Name,
                     Surname = model.Surname,
                     Email = model.Email,
-                    UserName = model.TCNumber
+                    UserName = model.TCNumber,
+                    ActivationCode=activationCode
                 };
 
-                //aktivasyon kodu üretelim
-
-                var activationCode = Guid.NewGuid().ToString().Replace("-", "");
+                
                 //ekleyeceğiz
-
                 var createResult = myUserManager.CreateAsync(newUser, model.Password);
 
                 //todo: createResult.Isfault ne acaba
@@ -118,9 +118,68 @@ namespace ECommerceLiteUI.Controllers
             }
             catch (Exception ex)
             {
-                throw;
-                
+                //Todo: loglama yapılacak
+                ModelState.AddModelError("", "Bekenmedik bir hata oluştu.Tekrar Deneyiniz");
+                return View(model);
+
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult> Activation(string code)
+        {//select * from aspnuser where activationcode='dfghjklşid'
+            try
+            {
+                var user = myUserStore.Context.Set<ApplicationUser>().FirstOrDefault(x => x.ActivationCode == code);
+                if (user==null)
+                {
+                    ViewBag.ActivationResult = "Aktivasyon işlemi başarısız.Sistem yöneticisinden yeniden email isteyiniz.";
+                    return View();
+                }
+                //user bulundu.Yukarıda takılmadıysa.
+                if (user.EmailConfirmed)//zaten aktifleşmiş mi?
+                {
+                    ViewBag.ActivationResult = "Aktivasyon işleminiz zaten gerçekleşmiştir.Giriş yaparak sistemi kullanabilirsiniz";
+                    return View();
+                }
+                user.EmailConfirmed = true;
+                await myUserStore.UpdateAsync(user);
+                await myUserStore.Context.SaveChangesAsync();
+                //User artık aktif
+                PassiveUser passiveUser = myPassiveUserRepo.AsQueryable().FirstOrDefault(x => x.UserId == user.Id);
+                if (passiveUser!=null)
+                {
+                    //todo:PassiveUser tablosuna TargetRole ekleme işlemini daha sonra yapalım. Kafalarındaki soru işareti gittikten sonra...
+
+                    passiveUser.IsDeleted = true;
+                    myPassiveUserRepo.Update();
+
+                    Customer customer = new Customer()
+                    {
+                        UserId = user.Id,
+                        TCNumber = passiveUser.TCNumber,
+                        IsDeleted = true,
+                        LastActiveTime = DateTime.Now
+                    };
+                    await myCustomerRepo.InsertAsync(customer);
+
+                    //aspnetuser tablosunda da bu kişinin artık customer mertebesine ulaştığını bildirelim.
+                    myUserManager.RemoveFromRole(user.Id, Roles.Passive.ToString());
+                    myUserManager.AddToRole(user.Id, Roles.Customer.ToString());
+                    //işlemin başarılı olduğuna dair mesajı gönderelim
+
+                    ViewBag.ActivationResult = $"Merhaba Sayın {user.Name}{user.Surname}, aktifleştirme işleminiz başarılıdır.Giriş yapıp sistemikullanabilirsiniz.";
+                    return View();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //todo: loglama yapılacak.
+                ModelState.AddModelError("", "Beklenmedik bir hata oluştu.");
+                return View();
+            }
+        }
+
     }
 }
