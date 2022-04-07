@@ -386,5 +386,101 @@ namespace ECommerceLiteUI.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Login(string ReturnUrl, string email)
+        {
+            try
+            {
+                //to do : sayfa patlamazsa if kontrolüne gerek yok. test ederken bakacağız.
+                var model = new LoginViewModel()
+                {
+                    ReturnUrl = ReturnUrl,
+                    Email=email
+                };
+                return View(model);
+                
+            }
+            catch (Exception ex)
+            {
+                //ex loglanacak
+                return View();
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var user = await myUserManager.FindAsync(model.Email, model.Password);
+                if (user==null)
+                {
+                    ModelState.AddModelError("", "Email veya şifrenizi yanlış girdiniz.");
+                    return View(model);
+                }
+                //user ı buldu ama rolü pasif ise sisteme giremesin.
+                if (user.Roles.FirstOrDefault().RoleId==myRoleManager.FindByName(Enum.GetName(typeof(Roles),Roles.Passive)).Id)
+                {
+                    ViewBag.Result = "Sistemi kullanmak için aktivasyon yapmanız gerekmektedir. Emailinize gönderilen aktivasyon linkine tıklayınız.";
+                    //todo: email gönder butonu burada yapılabilir.
+                    return View();
+                }
+                //artık login olabilir.
+                var authManager = HttpContext.GetOwinContext().Authentication;
+                var userIdentity = await myUserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = model.RememberMe },userIdentity);
+
+                //giriş yaptı.
+                //herkes rolüne uygun default bir sayfaya gitsin
+                if (user.Roles.FirstOrDefault().RoleId==myRoleManager.FindByName(Enum.GetName(typeof(Roles),Roles.Admin)).Id)
+                {
+                    return RedirectToAction("Dashboard", "Admin");
+                }
+                if (user.Roles.FirstOrDefault().RoleId == myRoleManager.FindByName(Enum.GetName(typeof(Roles), Roles.Customer)).Id)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                if (string.IsNullOrEmpty(model.ReturnUrl))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                //returnUrl dolu ise
+                var url = model.ReturnUrl.Split('/');//split
+                if (url.Length==4)
+                {
+                    return RedirectToAction(url[2], url[1], new { id = url[3] });
+                }
+                else
+                {
+                    return RedirectToAction(url[2], url[1]);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                //ex loglanacak
+                ModelState.AddModelError("", "Beklenmedik hata oluştu.Tekrar deneyiniz");
+                return View(model);
+
+            }
+        }
+
+        [Authorize]
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            var user = MembershipTools.GetUser();
+            HttpContext.GetOwinContext().Authentication.SignOut();
+            return RedirectToAction("Login", "Account",new { email = user.Email });
+        }
+
+
     }
 }
