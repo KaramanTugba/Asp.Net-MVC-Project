@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using ECommerceLiteEntity.Enums;
 using System.Threading.Tasks;
 using ECommerceLiteEntity.ViewModels;
+using Microsoft.Owin.Security;
 
 namespace ECommerceLiteUI.Controllers
 {
@@ -429,12 +430,17 @@ namespace ECommerceLiteUI.Controllers
                 {
                     ViewBag.Result = "Sistemi kullanmak için aktivasyon yapmanız gerekmektedir. Emailinize gönderilen aktivasyon linkine tıklayınız.";
                     //todo: email gönder butonu burada yapılabilir.
-                    return View();
+                    return View(model);
                 }
                 //artık login olabilir.
                 var authManager = HttpContext.GetOwinContext().Authentication;
                 var userIdentity = await myUserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = model.RememberMe },userIdentity);
+                //1.yol
+                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = model.RememberMe }, userIdentity);
+                //2.yol
+                //AuthenticationProperties authProperties = new AuthenticationProperties();
+                //authProperties.IsPersistent = model.RememberMe;
+                //authManager.SignIn(authProperties, userIdentity);
 
                 //giriş yaptı.
                 //herkes rolüne uygun default bir sayfaya gitsin
