@@ -14,7 +14,7 @@ namespace ECommerceLiteUI.Models
         //not: data annotation ları kullanarak validation kurallarını belirlediğimiz için kapsüllemeye gerek kalmadı.
         [Required]
         [StringLength(11,MinimumLength =11,ErrorMessage ="Tc Kimlik numarası 11 haneli olmalıdır.")]
-        [Display(Name="Tc Kimlik")]
+        [Display(Name="TC Kimlik Numarası")]
         public string TCNumber { get; set; }
 
         [Required]
