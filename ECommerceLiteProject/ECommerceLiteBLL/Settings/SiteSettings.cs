@@ -1,17 +1,17 @@
-﻿using ECommerceLiteEntity.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceLiteEntity.ViewModels;
 
 namespace ECommerceLiteBLL.Settings
 {
-   public class SiteSettings
+    public class SiteSettings
     {
-        // ToDo: Mail adresini webconfig dosyasından çekmeyi dde öğrenelim.
+        //To Do: Mail adresini webconfig dosyasından çekmeyi de öğrenelim
 
         public static string SiteMail { get; set; } = "nayazilim303@gmail.com";
         public static string SiteMailPassword { get; set; } = "betul303303";
@@ -23,7 +23,7 @@ namespace ECommerceLiteBLL.Settings
         {
             try
             {
-                using (var smtp=new SmtpClient())
+                using (var smtp = new SmtpClient())
                 {
                     var message = new MailMessage();
                     message.To.Add(new MailAddress(model.To));
@@ -32,11 +32,11 @@ namespace ECommerceLiteBLL.Settings
                     message.IsBodyHtml = true;
                     message.Body = model.Message;
                     message.BodyEncoding = Encoding.UTF8;
-                    if (!string.IsNullOrEmpty(model.Cc))//modeldeki cc boş değilse
+                    if (!string.IsNullOrEmpty(model.Cc)) //modeldeki cc boş değilse
                     {
                         message.CC.Add(new MailAddress(model.Cc));
                     }
-                    if (!string.IsNullOrEmpty(model.Bcc))//modeldeki bcc boş değilse
+                    if (!string.IsNullOrEmpty(model.Bcc)) //modeldeki bcc boş değilse
                     {
                         message.Bcc.Add(new MailAddress(model.Bcc));
                     }
@@ -45,23 +45,26 @@ namespace ECommerceLiteBLL.Settings
                         UserName = SiteMail,
                         Password = SiteMailPassword
                     };
+
                     smtp.Credentials = networkCredentials;
                     smtp.Host = SiteMailSmtpHost;
                     smtp.Port = SiteMailSmtpPort;
                     smtp.EnableSsl = true;
                     await smtp.SendMailAsync(message);
+
                 }
             }
             catch (Exception ex)
             {
 
-                //To do: ex loglanacak
+                // To Do: ex loglanacak
             }
         }
 
+
         public static string StringCharacterConverter(string name)
         {
-            string resultString=name
+            string resultString = name
             .Replace("'", "")
             .Replace(" ", "-")
             .Replace("<", "")
@@ -86,9 +89,9 @@ namespace ECommerceLiteBLL.Settings
             .Replace(".", "-")
             .Replace("?", "-")
             .Replace(";", "-");
+
             return resultString.ToLower();
 
         }
-
     }
 }

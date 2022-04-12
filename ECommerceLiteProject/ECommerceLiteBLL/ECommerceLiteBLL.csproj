@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86CB5723-891D-4B82-8279-CAE820CC5E6E}</ProjectGuid>
+    <ProjectGuid>{C91174EB-0BAF-40FD-8314-870E386C0159}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ECommerceLiteBLL</RootNamespace>
@@ -87,11 +87,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ECommerceLiteDAL\ECommerceLiteDAL.csproj">
-      <Project>{8e3b6849-9e7e-40d2-918a-75fa9d04e969}</Project>
+      <Project>{94dc7e00-a476-40d3-848a-0063b4c09dd5}</Project>
       <Name>ECommerceLiteDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ECommerceLiteEntity\ECommerceLiteEntity.csproj">
-      <Project>{804d3da5-7d9c-48be-8580-1503de1da283}</Project>
+      <Project>{bc16e683-02b0-467a-9e7b-fef5a9380b62}</Project>
       <Name>ECommerceLiteEntity</Name>
     </ProjectReference>
   </ItemGroup>

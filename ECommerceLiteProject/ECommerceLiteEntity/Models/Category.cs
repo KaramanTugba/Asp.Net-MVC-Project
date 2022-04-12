@@ -9,32 +9,28 @@ using System.Threading.Tasks;
 namespace ECommerceLiteEntity.Models
 {
     [Table("Categories")]
-    public class Category:Base<int>
+    public class Category : Base<int>
     {
         [Required]
-        [StringLength(100,MinimumLength =2,ErrorMessage ="Kategori adı 2 ile 100 karakter aralığında olmalıdır.")]
-        [Display(Name ="Kategori Adı")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Kategori adı 2 ile 100 karakter aralığında olmalıdır!")]
+        [Display(Name = "Kategori Adı")]
         public string CategoryName { get; set; }
-
-        [Required]
-        [StringLength(500, MinimumLength = 2, ErrorMessage = "Kategori açıklaması 2 ile 500 karakter aralığında olmalıdır.")]
+        [StringLength(500, MinimumLength = 2, ErrorMessage = "Kategori açıklaması 2 ile 500 karakter aralığında olmalıdır!")]
         [Display(Name = "Kategori Açıklaması")]
         public string CategoryDescription { get; set; }
 
+        public int? BaseCategoryId { get; set; } //int normalde asla null değer alamaz! int'in yanına ? yazarsak Nullable bir int oluşturmuş oluruz
 
-        public int? BaseCategoryId { get; set; }//int normalde asla null değer alamaz. int in yanına ? yazarsak Nullable bir int
-                                                //oluşturmuş oluruz.
-                                                //public Nullable<int> BaseCategoryId {get;set;}
-    
+        //public Nullable<int> BaseCategoryId { get; set; }
+
         [ForeignKey("BaseCategoryId")]
         public virtual Category BaseCategory { get; set; }
+
         public virtual List<Category> SubCategoryList { get; set; }
 
-        //Her ürünün bir kategorisi olur cümlesinden yola çıkarak , product ta tanımlanan ilişkiyi burada karşılıyoruz.
-        // 1 e sonsuz ilişki nedeniyle yeni bir kategorinin birden çok ürünü olabilir mantığını karşılamak amacıyla burada virtual 
-        //   prop List tipindedir.
+        // Her ürünün bir kategorisi olur cümlesinden yola çıkarak 
+        //Productta tanımlanan ilişkiyi burada karşılayalım
+        // 1'e sonsuz ilişki nedeniyle yani bir kategorinin birden çok ürünü olabilir mantığını karşılamak amacıyla burada virtual property List tipindedir
         public virtual List<Product> ProductList { get; set; }
-
-
     }
 }

@@ -8,11 +8,8 @@ namespace ECommerceLiteEntity.Models
 {
     public interface IPersonBase
     {
-
         string TCNumber { get; set; }
-
         DateTime LastActiveTime { get; set; }
         bool IsDeleted { get; set; }
-
     }
 }

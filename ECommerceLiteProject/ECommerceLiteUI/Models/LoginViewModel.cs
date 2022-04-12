@@ -15,9 +15,8 @@ namespace ECommerceLiteUI.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public bool RememberMe { get; set; }
-        //authorize istenen bir action a gitmek isterse sayfa login atılacak kullanıcıyı
-        //kullanıcı bilgilerini girerse onu istediği authorize lı sayfaya direk göndermek için gitmek istediği url bilgisini bu property de tutuyoruz.
+        //Authorize istenen bir action'a gitmek isterse sayfa login atıcak kullanıcıyı
+        //Kullanıcı bilgilerini girerse onu istediği Authorizelı sayfaya direk göndermek için gitmek istediği url bilgisini bu property'de tutuyoruz.
         public string ReturnUrl { get; set; }
-
     }
 }

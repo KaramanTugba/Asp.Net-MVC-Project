@@ -1,44 +1,52 @@
-﻿using ECommerceLiteDAL;
-using ECommerceLiteEntity.IdentityModels;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceLiteDAL;
+using ECommerceLiteEntity.IdentityModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web;
+
 
 namespace ECommerceLiteBLL.Account
 {
     public static class MembershipTools
     {
-        // static new lememk için
         public static UserStore<ApplicationUser> NewUserStore()
         {
             return new UserStore<ApplicationUser>(new MyContext());
         }
+
         public static UserManager<ApplicationUser> NewUserManager()
         {
             return new UserManager<ApplicationUser>(NewUserStore());
         }
-        public static RoleStore<ApplicationRole>NewRoleStore()
+
+        public static RoleStore<ApplicationRole> NewRoleStore()
         {
             return new RoleStore<ApplicationRole>(new MyContext());
         }
+
         public static RoleManager<ApplicationRole> NewRoleManager()
         {
             return new RoleManager<ApplicationRole>(NewRoleStore());
         }
 
+
         public static string GetUserName(string id)
         {
-            var usermanager= NewUserManager();
-            //var user =
-            //if (user != null)
-            //{ return user.UserName; }
+            var usermanager = NewUserManager();
+            var user = usermanager.FindById(id);
+            if (user != null)
+            {
+                return user.UserName;
+            }
             return null;
         }
+
+
         public static string GetNameSurname()
         {
             var id = HttpContext.Current.User.Identity.GetUserId();
@@ -60,6 +68,8 @@ namespace ECommerceLiteBLL.Account
             return usernamesurname;
 
         }
+
+
         public static ApplicationUser GetUser()
         {
             var id = HttpContext.Current.User.Identity.GetUserId();
@@ -71,6 +81,5 @@ namespace ECommerceLiteBLL.Account
             var user = myusermanager.FindById(id);
             return user;
         }
-
     }
 }

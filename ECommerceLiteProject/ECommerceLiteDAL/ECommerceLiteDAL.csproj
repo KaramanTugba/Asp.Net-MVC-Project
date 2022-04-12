@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E3B6849-9E7E-40D2-918A-75FA9D04E969}</ProjectGuid>
+    <ProjectGuid>{94DC7E00-A476-40D3-848A-0063B4C09DD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ECommerceLiteDAL</RootNamespace>
@@ -78,9 +78,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202204041153319_initialDB.cs" />
-    <Compile Include="Migrations\202204041153319_initialDB.designer.cs">
-      <DependentUpon>202204041153319_initialDB.cs</DependentUpon>
+    <Compile Include="Migrations\202204041145409_initialDB.cs" />
+    <Compile Include="Migrations\202204041145409_initialDB.designer.cs">
+      <DependentUpon>202204041145409_initialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ECommerceLiteEntity\ECommerceLiteEntity.csproj">
-      <Project>{804d3da5-7d9c-48be-8580-1503de1da283}</Project>
+      <Project>{bc16e683-02b0-467a-9e7b-fef5a9380b62}</Project>
       <Name>ECommerceLiteEntity</Name>
     </ProjectReference>
   </ItemGroup>
@@ -97,8 +97,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204041153319_initialDB.resx">
-      <DependentUpon>202204041153319_initialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204041145409_initialDB.resx">
+      <DependentUpon>202204041145409_initialDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

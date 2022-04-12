@@ -8,9 +8,10 @@ using ECommerceLiteDAL;
 
 namespace ECommerceLiteBLL.Repository
 {
-   public abstract class RepositoryBase<T,Id> where T:class,new()
+    public abstract class RepositoryBase<T, Id> where T : class, new()
     {
         protected static MyContext dbContext;
+
         public virtual List<T> GetAll()
         {
             try
@@ -25,16 +26,16 @@ namespace ECommerceLiteBLL.Repository
             }
         }
 
-        public async virtual Task<List<T>> GetTsAsync()
+        public async virtual Task<List<T>> GetAllAsync()
         {
             try
             {
-                dbContext = dbContext ?? new MyContext();
+                dbContext = new MyContext();
                 return await dbContext.Set<T>().ToListAsync();
+
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -43,7 +44,10 @@ namespace ECommerceLiteBLL.Repository
         {
             try
             {
-                dbContext = dbContext ?? new MyContext();// dbContext nesnesi null mı? Null değilse onu kullan null ise yeni oluştur.
+                dbContext = dbContext ?? new MyContext();
+                // dbContext nesnesi null mı? 
+                // null değilse onu kullan null ise yeni oluştur.
+
                 return dbContext.Set<T>().Find(id);
             }
             catch (Exception ex)
@@ -52,12 +56,17 @@ namespace ECommerceLiteBLL.Repository
                 throw ex;
             }
         }
+
+
         public async virtual Task<T> GetByIdAsync(Id id)
         {
             try
             {
-                dbContext = dbContext ?? new MyContext();// dbContext nesnesi null mı? Null değilse onu kullan null ise yeni oluştur.
-                return  await dbContext.Set<T>().FindAsync(id);
+                dbContext = dbContext ?? new MyContext();
+                // dbContext nesnesi null mı? 
+                // null değilse onu kullan null ise yeni oluştur.
+
+                return await dbContext.Set<T>().FindAsync(id);
             }
             catch (Exception ex)
             {
@@ -81,7 +90,7 @@ namespace ECommerceLiteBLL.Repository
             }
         }
 
-        public async  virtual Task<int> InsertAsync(T entity)
+        public async virtual Task<int> InsertAsync(T entity)
         {
             try
             {
@@ -110,7 +119,6 @@ namespace ECommerceLiteBLL.Repository
                 throw ex;
             }
         }
-
         public async virtual Task<int> DeleteAsync(T entity)
         {
             try
@@ -126,6 +134,7 @@ namespace ECommerceLiteBLL.Repository
             }
         }
 
+
         public virtual int Update()
         {
             try
@@ -138,7 +147,6 @@ namespace ECommerceLiteBLL.Repository
 
                 throw ex;
             }
-
         }
 
         public async virtual Task<int> UpdateAsync()
@@ -168,6 +176,7 @@ namespace ECommerceLiteBLL.Repository
                 throw ex;
             }
         }
+
         public void Dispose()
         {
             dbContext.Dispose();
@@ -175,4 +184,7 @@ namespace ECommerceLiteBLL.Repository
             dbContext = null;
         }
     }
+
+
+
 }

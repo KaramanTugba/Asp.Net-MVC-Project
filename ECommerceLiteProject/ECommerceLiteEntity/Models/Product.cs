@@ -12,34 +12,34 @@ namespace ECommerceLiteEntity.Models
     public class Product : Base<int>
     {
         [Required]
-        [StringLength(maximumLength: 100, MinimumLength = 2, ErrorMessage = "Ürün adı 2 ile 100 karakter aralığında olmalıdır.")]
+        [StringLength(maximumLength: 100, MinimumLength = 2, ErrorMessage = "Ürün adı 2 ile 100 karakter aralığında olmalıdır!")]
         [Display(Name = "Ürün Adı")]
         public string ProductName { get; set; }
 
+
         [Required]
-        [StringLength(maximumLength: 500, ErrorMessage = "Ürün açıklaması en fazla 500 karakter olmalıdır.")]
+        [StringLength(maximumLength: 500, ErrorMessage = "Ürün açıklaması en fazla 500 karakter olmalıdır!")]
         [Display(Name = "Ürün Açıklaması")]
         public string Description { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 8, MinimumLength = 8, ErrorMessage = "Ürün kodu en fazla 8 karakter olmalıdır.")]
         [Display(Name = "Ürün Kodu")]
-        [Index(IsUnique = true)]//Benzersiz tekrarsız olmasını sağlar
+        [StringLength(maximumLength: 8, MinimumLength = 8, ErrorMessage = "Ürün kodu en fazla 8 karakter olmalıdır!")]
+        [Index(IsUnique = true)] // Benzersiz tekrarsız olmasını sağlar
         public string ProductCode { get; set; }
-
         [Required]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-
         public int Quantity { get; set; }
         public double Discount { get; set; }
 
-        //her ürünün bir kategorisi olur. İlişki kuruldu.
+        // her ürünün bir kategorisi olur. İlişki kurduk
         public int CategoryId { get; set; }
+
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }// ProductOfCategory
+        public virtual Category Category { get; set; } //ProductOfCategory
+
         public virtual List<OrderDetail> OrderDetails { get; set; }
         public virtual List<ProductPicture> ProductPictures { get; set; }
-
     }
 }

@@ -11,20 +11,28 @@ namespace ECommerceLiteUI.Controllers
         [NonAction]
         public string CreateRandomNewPassword()
         {
+            //abcde1234
             Random rnd = new Random();
             int number = rnd.Next(1000, 5000);
-            char[] guidstring = Guid.NewGuid().ToString().Replace("-", "").ToArray();
+            char[] guidString = Guid.NewGuid().ToString().Replace("-", "")
+                .ToArray();
             string newPassword = string.Empty;
-            for (int i = 0; i < guidstring.Length; i++)
+            for (int i = 0; i < guidString.Length; i++)
             {
-                if (newPassword.Length == 5) break;
-                if (char.IsLetter(guidstring[i]))
+                if (newPassword.Length == 5) 
+                { 
+                    break; 
+                }
+                if (char.IsLetter(guidString[i]))
                 {
-                    newPassword += guidstring[i];
+                    newPassword += guidString[i];
                 }
             }
             newPassword += number;
             return newPassword;
+
         }
+
+
     }
 }

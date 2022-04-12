@@ -9,31 +9,34 @@ using System.Threading.Tasks;
 
 namespace ECommerceLiteEntity.IdentityModels
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        //identityUser 'dan kalıtım alında. Identity user microsoft un identity şemasına ait bir classtır.
-        //identity user class ı ile bize sunulan aspNetUser tablosundaki koplonları genişletmek için kalıtım aldık
-        //aşağıya ihtiyacımız olan kolonları aldık
+        //identtiyUser'dan kalıtım alındı. Identity User Microsoft'un identity şemasına ait bir classtır.
+        // IdentityUser classı ile bize sunulan AspNetUsers tablosundaki kolonların genişletmek için kalıtım aldık.
+        //Aşağıya ihtiyacımız olan kolonları ekledik
+
         [Required]
-        [Display(Name="Ad")]
-        [StringLength(maximumLength:30,MinimumLength =2,ErrorMessage ="İsminizin uzunluğu 2 ile 30 karakter aralığında olmalıdır.")]
+        [Display(Name = "Ad")]
+        [StringLength(maximumLength: 30, MinimumLength = 2, ErrorMessage = "İsminizin uzunluğu 2 ile 30 karakter aralığında olmalıdır!")]
         public string Name { get; set; }
+
         [Required]
         [Display(Name = "Soyad")]
-        [StringLength(maximumLength: 30, MinimumLength = 2, ErrorMessage = "Soyisminizin uzunluğu 2 ile 30 karakter aralığında olmalıdır.")]
+        [StringLength(maximumLength: 30, MinimumLength = 2, ErrorMessage = "Soyisminizin uzunluğu 2 ile 30 karakter aralığında olmalıdır!")]
         public string Surname { get; set; }
-        [Required]
+
         [Display(Name = "Kayıt Tarihi")]
+        [Required]
         [DataType(DataType.DateTime)]
         public DateTime RegisterDate { get; set; } = DateTime.Now;
-        //ToDo: Guid in kaç haneli olduğuna bakıp buraya string lenght ile attribute tanımlanacaktır.
+        //ToDo: Guid'in kaç haneli olduğuna bakıp buraya string length ile attribute tanımlanacaktır
         public string ActivationCode { get; set; }
-        //isteyen birtdate gibi bir alan da ekleyebilir.
+
+        // İsteyen birthDate gibi bir alan da ekleyebilir.
 
         public virtual List<Admin> AdminList { get; set; }
         public virtual List<Customer> CustomerList { get; set; }
         public virtual List<PassiveUser> PassiveUserList { get; set; }
 
-        
     }
 }

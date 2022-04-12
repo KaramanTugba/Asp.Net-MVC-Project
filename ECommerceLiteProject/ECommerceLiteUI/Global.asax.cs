@@ -20,38 +20,47 @@ namespace ECommerceLiteUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //NOT: Application_Start
-            //uygulama ilk kez çalıştığında bir defaya mahsus olmak üzer çalışır.
-            //Bu nedenle ben uyg. ilk kez çalıştığında ds de roller ekli mi diye bakmak istiyorum.
-            //ekli değilse rolleri enum dan çağırıp ekleyelim.
-            //ekli ise birşey yapmaya gerek yok.
+            //NOT: Application_Start :
+            //Uygulama ilk kez çalıştırıldığında bir defaya mahsus olmak üzere çalışır.
+            //Bu nedenle ben uyg. ilk kez çalıştığında DB'de Roller ekli mi diye bakmak istiyorum.
+            //Ekli değilse rolleri Enum'dan çağırıp ekleyelim
+            //Ekli ise bişey yapmaya gerek kalmıyor.
 
-            //adım 1 :rollere bakacağım  -->RoleManager
-            var myRoleManager=MembershipTools.NewRoleManager();
-            //adım2: rollerin isimlerini almak
+            //adım 1: Rollere bakacağım şey --> Role Manager
+            var myRoleManager = MembershipTools.NewRoleManager();
+            //adım 2: Rollerin isimlerini almak (ipucu --> Enum)
             var allRoles = Enum.GetNames(typeof(Roles));
-            //adım3: bize gelen diziyi tek tek döneceğiz
+            //adım 3: Bize gelen diziyi tek tek tek döneceğiz (döngü)
+            
             foreach (var item in allRoles)
             {
-                //adım4: acaba bu rol db de ekli mi?
-                if (!myRoleManager.RoleExists(item))
+                //adım 4: Acaba bu rol DB'de ekli mi? 
+                if (!myRoleManager.RoleExists(item)) // Eğer bu role ekli değilse?
                 {
-                    //adım5: rolü ekle.
-                    //ApplicationRole role = new ApplicationRole() { Name = item };
-                    //myRoleManager.Create(role);
-                    myRoleManager.Create(new ApplicationRole() { Name=item});
+                    //Adım 5: Rolü ekle!
+                    //1.yol
+                    ApplicationRole role = new ApplicationRole()
+                    {
+                        Name=item
+                    };
+                    myRoleManager.Create(role);
+                    //2.yol
+                    //myRoleManager.Create(new ApplicationRole()
+                    //{
+                    //    Name = item
+                    //});
+
                 }
             }
+
         }
         protected void Application_Error()
         {
-            //NOT: İhtiyaç halinde internetten Global.assax'ın metodlarına bakıp kullanilabilir.
-            //ÖRN: Application_Error: Uygulama içinde istenmeyen bir hata meyadan geldiğinde çalışır.
-            //Bu metodu kullanarak hata loglanarak çözülebilir.
+            //NOT: ihtiyacım olursa internetten Global.asax'ın metotlarına bakıp kullanabilirim
+            //ÖRN: Application_Error : Uygulama içinde istenmeyen bir hata meydana geldiğinde çalışır. Bu metodu yazarsak o hatayı loglayıp sorunu çözebiliriz.
 
             Exception ex = Server.GetLastError();
             //ex loglanacak
         }
-
     }
 }

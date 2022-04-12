@@ -13,6 +13,5 @@ namespace ECommerceLiteEntity.ViewModels
         public string Bcc { get; set; }
         public string Subject { get; set; }
         public string Message { get; set; }
-
     }
 }

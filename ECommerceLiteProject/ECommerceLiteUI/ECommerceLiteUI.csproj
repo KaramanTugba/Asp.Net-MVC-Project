@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E88EDAD5-877C-4708-94F6-A55CCFE5749B}</ProjectGuid>
+    <ProjectGuid>{DCC6E835-F63E-40D1-BB87-40AB79689CCC}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -159,7 +159,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IConfirmPassword.cs" />
+    <Compile Include="Models\IEmail.cs" />
+    <Compile Include="Models\INameSurname.cs" />
+    <Compile Include="Models\IPassword.cs" />
+    <Compile Include="Models\INewPassword.cs" />
+    <Compile Include="Models\ITcNumber.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\PasswordChangeViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,6 +258,10 @@
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Activation.cshtml" />
+    <Content Include="Views\Account\RecoverPassword.cshtml" />
+    <Content Include="Views\Account\UpdatePassword.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,11 +282,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ECommerceLiteBLL\ECommerceLiteBLL.csproj">
-      <Project>{86cb5723-891d-4b82-8279-cae820cc5e6e}</Project>
+      <Project>{c91174eb-0baf-40fd-8314-870e386c0159}</Project>
       <Name>ECommerceLiteBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ECommerceLiteEntity\ECommerceLiteEntity.csproj">
-      <Project>{804d3da5-7d9c-48be-8580-1503de1da283}</Project>
+      <Project>{bc16e683-02b0-467a-9e7b-fef5a9380b62}</Project>
       <Name>ECommerceLiteEntity</Name>
     </ProjectReference>
   </ItemGroup>
@@ -295,9 +306,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60467</DevelopmentServerPort>
+          <DevelopmentServerPort>50354</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60467/</IISUrl>
+          <IISUrl>http://localhost:50354/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

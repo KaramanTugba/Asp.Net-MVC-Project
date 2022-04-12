@@ -9,33 +9,32 @@ using System.Threading.Tasks;
 namespace ECommerceLiteEntity.Models
 {
     [Table("OrderDetails")]
-    public class OrderDetail:Base<int>
+    public class OrderDetail : Base<int>
     {
 
         //ilişkiler
 
-        //her ürün detayı bir siparişe bağlıdır.
+        //Her ürün detayı bir siparişe bağlıdır
         public int OrderId { get; set; }
         [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }
 
-        //her sipariş detayının bir ürünü olmalıdır.
+        //Her sipariş detayının bir ürünü olmalıdır
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }
 
-        //özellikler
+        // özellikler
         [Required]
         public int Quantity { get; set; }
-
         [Required]
         [DataType(DataType.Currency)]
         public decimal ProductPrice { get; set; }
-
         public double Discount { get; set; }
-
         [Required]
         [DataType(DataType.Currency)]
         public decimal TotalPrice { get; set; }
+
+
     }
 }

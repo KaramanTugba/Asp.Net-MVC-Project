@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{804D3DA5-7D9C-48BE-8580-1503DE1DA283}</ProjectGuid>
+    <ProjectGuid>{BC16E683-02B0-467A-9E7B-FEF5A9380B62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ECommerceLiteEntity</RootNamespace>
