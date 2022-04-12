@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ECommerceLiteUI.Models
 {
-    public class ProfileViewModel : INameSurname, IPassword, IEmail
+    public class ProfileViewModel 
     {
         //Ad, Soyad, Email, UserName, Şifre ve Şifre Tekrarı, Yeni Şifre 
 
@@ -27,9 +27,10 @@ namespace ECommerceLiteUI.Models
         [Display(Name = "Şifre")]
         [DataType(DataType.Password)]
         [RegularExpression(@"^[a-zA-Z]\w{4,14}$", ErrorMessage = @"	
-The password's first character must be a letter, it must contain at least 5 characters and no more than 15 characters and no characters other than letters, numbers and the underscore may be used")]
-
+    The password's first character must be a letter, it must contain at least 5 characters and no more than 15 characters and 
+no characters other than letters, numbers and the underscore may be used")]
         public string Password { get; set; }
+
         // [Required] --> TODO yapılınca required yorum satırı olmasın
         [EmailAddress]
         public string Email { get; set; }

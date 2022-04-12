@@ -34,6 +34,14 @@ namespace ECommerceLiteUI.Controllers
         [HttpGet]
         public ActionResult Register()
         {
+            //Zaten giriş yapmış biri bu sayfayı tekrar çağırdığında Home-Indexe gitsin
+            if (MembershipTools.GetUser() != null)
+            {
+                // TO DO: Acaba kişinin gittiği URL'i tutup oraya
+                // geri gönderme nasıl yaparız?
+                return RedirectToAction("Index", "Home");
+
+            }
             //Kayıt ol sayfası 
             return View();
         }
@@ -216,7 +224,8 @@ namespace ECommerceLiteUI.Controllers
                 ProfileViewModel model = new ProfileViewModel()
                 {
                     Name = user.Name,
-                    Surname = user.Surname
+                    Surname = user.Surname,
+                    Email=user.Email
                 };
                 return View(model);
             }
@@ -258,7 +267,8 @@ namespace ECommerceLiteUI.Controllers
                 var updatedModel = new ProfileViewModel()
                 {
                     Name = user.Name,
-                    Surname = user.Surname
+                    Surname = user.Surname,
+                    Email=user.Email
                 };
                 return View(updatedModel);
 
@@ -278,12 +288,11 @@ namespace ECommerceLiteUI.Controllers
         [Authorize]
         public ActionResult UpdatePassword()
         {
-            var user = myUserManager.FindById(HttpContext.User.Identity.GetUserId());
-            if (user == null)
-            {
-            ModelState.AddModelError("", "Sisteme giriş yapmanız gerekmektedir");
-
-           }
+           // var user = myUserManager.FindById(HttpContext.User.Identity.GetUserId());
+           // if (user == null)
+           // {
+           // ModelState.AddModelError("", "Sisteme giriş yapmanız gerekmektedir");
+           //}
             return View();
         }
 

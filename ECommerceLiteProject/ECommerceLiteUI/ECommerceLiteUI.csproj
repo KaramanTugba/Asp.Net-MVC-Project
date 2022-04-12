@@ -159,12 +159,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IConfirmPassword.cs" />
-    <Compile Include="Models\IEmail.cs" />
-    <Compile Include="Models\INameSurname.cs" />
-    <Compile Include="Models\IPassword.cs" />
-    <Compile Include="Models\INewPassword.cs" />
-    <Compile Include="Models\ITcNumber.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PasswordChangeViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
