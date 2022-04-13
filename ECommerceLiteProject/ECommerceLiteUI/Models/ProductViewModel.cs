@@ -11,8 +11,10 @@ namespace ECommerceLiteUI.Models
 {
     public class ProductViewModel
     {
+
         CategoryRepo myCategoryRepo = new CategoryRepo();
         ProductPictureRepo myProductPictureRepo = new ProductPictureRepo();
+
         public int Id { get; set; }
 
         public DateTime RegisterDate { get; set; }
@@ -22,12 +24,10 @@ namespace ECommerceLiteUI.Models
         [Display(Name = "Ürün Adı")]
         public string ProductName { get; set; }
 
-
         [Required]
         [StringLength(maximumLength: 500, ErrorMessage = "Ürün açıklaması en fazla 500 karakter olmalıdır!")]
         [Display(Name = "Ürün Açıklaması")]
         public string Description { get; set; }
-
         [Required]
         [Display(Name = "Ürün Kodu")]
         [StringLength(maximumLength: 8, MinimumLength = 8, ErrorMessage = "Ürün kodu en fazla 8 karakter olmalıdır!")]
@@ -41,18 +41,69 @@ namespace ECommerceLiteUI.Models
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
-        public List<ProductPicture> ProductPictureList { get; set; } = new List<ProductPicture>();
 
-        //ürün eklenirke ürüne ait resimler eklenebilir seçilebilir. Seçilen resimleri hafızada tutacak property
+        public List<ProductPicture> ProductPictureList { get; set; }
+            = new List<ProductPicture>();
+
+        // Ürün eklenirken ürüne ait resimlere seçilebilir
+        //Seçilen resimleri hafıza tutacak propery
         public List<HttpPostedFileBase> Files { get; set; } = new List<HttpPostedFileBase>();
 
         public void GetProductPictures()
         {
-            if (Id>0)
+            if (Id > 0)
             {
-                ProductPictureList = myProductPictureRepo.AsQueryable().Where(x => x.ProductId == Id).ToList();
+                ProductPictureList = myProductPictureRepo.AsQueryable()
+                    .Where(x => x.ProductId == Id).ToList();
             }
         }
-        
+        public void GetCategory()
+        {
+            if (CategoryId > 0)
+            {
+                //ÖRN: Elektronik kat.--> Akıllı Telefon kat. --> ürün(iphone 13 pro max)
+                Category = myCategoryRepo.GetById(CategoryId);
+                // Akıllı telefon kat artık elimde!
+                // Akıllı telefon kat. bir üst kategorisi var mı?
+                // ÖRN: Elek--> Akkıl tel --> applegiller
+                if (Category.BaseCategoryId != null
+                    && Category.BaseCategoryId > 0)
+                {
+                    Category.CategoryList = new List<Category>();
+
+                    Category.BaseCategory = myCategoryRepo.GetById
+                        (Category.BaseCategoryId.Value);
+                    Category.CategoryList.Add(Category.BaseCategory);
+
+                    bool isOver = false;
+                    Category baseCategory = Category.BaseCategory;
+                    while (!isOver)
+                    {
+                        if (baseCategory.BaseCategoryId > 0)
+                        {
+                       
+                            Category.CategoryList.Add(
+                                myCategoryRepo.GetById
+                                (baseCategory.BaseCategoryId.Value));
+
+                            baseCategory = myCategoryRepo.GetById(
+                                baseCategory.BaseCategoryId.Value);
+                        }
+                        else
+                        {
+                            isOver = true;
+                        }
+
+                    }
+
+                    Category.CategoryList = 
+                        Category.CategoryList.OrderBy(x => x.Id).ToList();
+
+
+                }
+            }
+        }
+
+
     }
 }

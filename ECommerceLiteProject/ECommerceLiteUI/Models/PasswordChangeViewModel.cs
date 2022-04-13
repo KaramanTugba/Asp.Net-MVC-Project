@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ECommerceLiteUI.Models
 {
-    public class PasswordChangeViewModel 
+    public class PasswordChangeViewModel
     {
         [Required]
         [Display(Name = "Şifre")]

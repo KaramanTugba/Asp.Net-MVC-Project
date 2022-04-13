@@ -8,6 +8,6 @@ namespace ECommerceLiteUI.Controllers
 {
     public class CategoryController : Controller
     {
-        
+      
     }
 }

@@ -40,8 +40,8 @@ namespace ECommerceLiteUI.Controllers
                 // TO DO: Acaba kişinin gittiği URL'i tutup oraya
                 // geri gönderme nasıl yaparız?
                 return RedirectToAction("Index", "Home");
-
             }
+
             //Kayıt ol sayfası 
             return View();
         }
@@ -225,7 +225,8 @@ namespace ECommerceLiteUI.Controllers
                 {
                     Name = user.Name,
                     Surname = user.Surname,
-                    Email=user.Email
+                    Email = user.Email,
+                    // TC gelebilir
                 };
                 return View(model);
             }
@@ -268,7 +269,8 @@ namespace ECommerceLiteUI.Controllers
                 {
                     Name = user.Name,
                     Surname = user.Surname,
-                    Email=user.Email
+                    Email = user.Email,
+                    //TC gelebilir
                 };
                 return View(updatedModel);
 
@@ -288,11 +290,6 @@ namespace ECommerceLiteUI.Controllers
         [Authorize]
         public ActionResult UpdatePassword()
         {
-           // var user = myUserManager.FindById(HttpContext.User.Identity.GetUserId());
-           // if (user == null)
-           // {
-           // ModelState.AddModelError("", "Sisteme giriş yapmanız gerekmektedir");
-           //}
             return View();
         }
 
@@ -363,7 +360,7 @@ namespace ECommerceLiteUI.Controllers
             try
             {
                 //Şifresini unutmuş. 
-     
+
                 var user = myUserStore.Context.Set<ApplicationUser>()
                     .FirstOrDefault(x => x.Email == model.Email);
 
@@ -413,12 +410,12 @@ namespace ECommerceLiteUI.Controllers
             try
             {
                 //Zaten giriş yapmış biri bu sayfayı tekrar çağırdığında Home-Indexe gitsin
-                if (MembershipTools.GetUser()!=null)
+                if (MembershipTools.GetUser() != null)
                 {
                     // TO DO: Acaba kişinin gittiği URL'i tutup oraya
                     // geri gönderme nasıl yaparız?
                     return RedirectToAction("Index", "Home");
-                    
+
                 }
 
                 //TO DO: sayfa patlamazsa if kontrolüne gerek yok! Test ederken bakacağız

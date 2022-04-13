@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ECommerceLiteUI.Models
 {
-    public class RegisterViewModel
+    public class RegisterViewModel 
     {
         //Kayıt Modeli içinde siteye kayıt olmak isteyen kişilerden hangi bilgileri alacağımız belirleyeceğiz
         // TCKimlik, İsim soyisim email (eğer yazdıysak telefon, cinsiyet vb)  alanlarını tanımlayalım
@@ -27,11 +27,9 @@ namespace ECommerceLiteUI.Models
         [Display(Name = "Soyad")]
         [StringLength(maximumLength: 30, MinimumLength = 2, ErrorMessage = "Soyisminizin uzunluğu 2 ile 30 karakter aralığında olmalıdır!")]
         public string Surname { get; set; }
-
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-
         [Required]
         [Display(Name = "Şifre")]
         [DataType(DataType.Password)]

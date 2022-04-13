@@ -49,7 +49,8 @@
                 <br />
                 <div class="form-group">
                     @Html.Label("Mevcut Şifreniz")
-                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control",type="password" })
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control",
+               type="password"})
                 </div>
                 <br />
                 <div class="pull-right">
@@ -68,22 +69,22 @@
                        margin-right:5px">Şifremi Değiştir</a>
 
                     @*Normal buton kullanmak isterseniz click eventina script yazmalısınız*@
-                    @*<input type="button"
+                    <input type="button"
                            value="Şifremi Değiştir"
                            class="btn btn-default"
                            style="background-color:#D10024; color:white;
                         margin-right:5px"
-                           onclick="Gotoupdatepasswordpage()" />*@
+                           onclick="Gotoupdatepasswordpage()" />
                 </div>
             </div>
         }
     </div>
 </div>
 
-@*@section Scripts{
+@section Scripts{
     <script>
         function Gotoupdatepasswordpage() {
             window.location.assign("/Account/UpdatePassword")
         }
     </script>
-}*@
+}
