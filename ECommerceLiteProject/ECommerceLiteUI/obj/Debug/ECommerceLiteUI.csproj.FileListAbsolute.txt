@@ -55,6 +55,8 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommer
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\ECommerceLiteEntity.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\EntityFramework.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\EntityFramework.SqlServer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\Mapster.Core.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\Mapster.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\Microsoft.AspNet.Identity.Owin.dll

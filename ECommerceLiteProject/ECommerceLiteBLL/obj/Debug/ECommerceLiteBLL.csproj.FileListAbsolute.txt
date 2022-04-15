@@ -5,6 +5,8 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommer
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\ECommerceLiteEntity.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\EntityFramework.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\Mapster.Core.dll
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\Mapster.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteBLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
