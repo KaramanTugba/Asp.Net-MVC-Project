@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ECommerceLiteBLL.Repository;
+using ECommerceLiteUI.Models;
 
 namespace ECommerceLiteUI.Controllers
 {
@@ -26,6 +27,18 @@ namespace ECommerceLiteUI.Controllers
         {
             TempData["ProductCount"] = myProductRepo.GetAll().Count();
             return PartialView("_PartialAdminSideBarProducts");
+        }
+        public PartialViewResult ShoppingCard()
+        {
+            var shoppingCard = Session["ShoppingCard"] as List<ProductViewModel>;
+            if (shoppingCard==null)
+            {
+                return PartialView("_PartialShoppingCard", new List<ProductViewModel>());
+            }
+            else
+            {
+                return PartialView("_PartialShoppingCard", shoppingCard);
+            }
         }
 
     }
