@@ -13,19 +13,20 @@ namespace ECommerceLiteUI.Controllers
         ProductRepo myProductRepo = new ProductRepo();
         public PartialViewResult AdminSideBarResult()
         {
-            return PartialView("_PartialAdminSidebar");
+            return PartialView("_PartialAdminSideBar");
         }
+
         public PartialViewResult AdminSideBarMenuResult()
         {
             TempData["CategoryCount"] = myCategoryRepo.GetAll().Count();
             return PartialView("_PartialAdminSideBarMenu");
         }
+
         public PartialViewResult AdminSideBarProducts()
         {
             TempData["ProductCount"] = myProductRepo.GetAll().Count();
             return PartialView("_PartialAdminSideBarProducts");
         }
-        
-       
+
     }
 }

@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,18 +55,22 @@
                 <ul class="header-links pull-right">
                     <!--Buraya partial gelecek..-->
 
-                    @{ 
+                    @{
                         var user = MembershipTools.GetUser();
-                        if (user!=null)
+                        if (user != null)
                         {
-                            if (MembershipTools.NewUserManager().IsInRoleAsync(user.Id,ECommerceLiteEntity.Enums.Roles.Admin.ToString()).Result)
+                            if (MembershipTools.NewUserManager().
+                                IsInRoleAsync(user.Id, ECommerceLiteEntity.Enums.Roles.Admin.ToString()).Result)
                             {
-                                
-                                    <li>
-                                    <a href="/Admin/Dashboard" class="btn btn-default" style="background-color:#d10024;color:white">Admin Panel</a>
-                                    </li>
-                               
+
+                                <li>
+                                    <a href="/Admin/Dashboard" class="btn btn-default"
+                                       style="background-color:#d10024;color:white;">
+                                        ADMİN PANEL
+                                    </a>
+                                </li>
                             }
+
                         }
                     }
 

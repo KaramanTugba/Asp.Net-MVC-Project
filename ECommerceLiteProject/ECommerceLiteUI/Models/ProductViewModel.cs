@@ -75,29 +75,28 @@ namespace ECommerceLiteUI.Models
                         (Category.BaseCategoryId.Value);
                     Category.CategoryList.Add(Category.BaseCategory);
 
-                    bool isOver = false;
-                    Category baseCategory = Category.BaseCategory;
-                    while (!isOver)
-                    {
-                        if (baseCategory.BaseCategoryId > 0)
-                        {
-                       
-                            Category.CategoryList.Add(
-                                myCategoryRepo.GetById
-                                (baseCategory.BaseCategoryId.Value));
+                    //bool isOver = false;
+                    //Category baseCategory = Category.BaseCategory;
+                    //while (!isOver)
+                    //{
+                    //    if (baseCategory.BaseCategoryId > 0)
+                    //    {
 
-                            baseCategory = myCategoryRepo.GetById(
-                                baseCategory.BaseCategoryId.Value);
-                        }
-                        else
-                        {
-                            isOver = true;
-                        }
+                    //        Category.CategoryList.Add(
+                    //            myCategoryRepo.GetById
+                    //            (baseCategory.BaseCategoryId.Value));
 
-                    }
+                    //        baseCategory = myCategoryRepo.GetById(
+                    //            baseCategory.BaseCategoryId.Value);
+                    //    }
+                    //    else
+                    //    {
+                    //        isOver = true;
+                    //    }
 
-                    Category.CategoryList = 
-                        Category.CategoryList.OrderBy(x => x.Id).ToList();
+                    //}
+
+                    Category.CategoryList = Category.CategoryList.OrderBy(x => x.Id).ToList();
 
 
                 }
