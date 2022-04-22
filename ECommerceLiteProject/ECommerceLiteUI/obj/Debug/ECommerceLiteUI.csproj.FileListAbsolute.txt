@@ -109,3 +109,4 @@ C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommer
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\obj\Debug\ECommerceLiteUI.csproj.CopyComplete
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\obj\Debug\ECommerceLiteUI.dll
 C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\obj\Debug\ECommerceLiteUI.pdb
+C:\Users\303TUGBA_SABAH\Desktop\Asp.Net-MVC-Project\ECommerceLiteProject\ECommerceLiteUI\bin\QRCoder.dll

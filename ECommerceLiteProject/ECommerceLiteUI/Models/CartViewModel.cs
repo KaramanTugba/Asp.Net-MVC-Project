@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ECommerceLiteUI.Models
 {
-    public class CardViewModel
+    public class CartViewModel
     {
         public int Id { get; set; }
 

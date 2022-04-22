@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,9 +22,9 @@ namespace ECommerceLiteUI.Controllers
             string newPassword = string.Empty;
             for (int i = 0; i < guidString.Length; i++)
             {
-                if (newPassword.Length == 5) 
-                { 
-                    break; 
+                if (newPassword.Length == 5)
+                {
+                    break;
                 }
                 if (char.IsLetter(guidString[i]))
                 {
@@ -33,6 +36,16 @@ namespace ECommerceLiteUI.Controllers
 
         }
 
+        [NonAction]
+        public static byte[] BitmapToByteArray(Bitmap bitmap)
+        {
+            //Bitmap şeklindeki datayı belleğe byte serisi şeklinde kaydediyor.
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bitmap.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
 
     }
 }

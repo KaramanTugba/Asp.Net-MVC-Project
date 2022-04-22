@@ -6,8 +6,26 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
+@if (TempData["AddToCartSuccess"] != null)
+{
+    <div class="alert alert-success">@TempData["AddToCartSuccess"]</div>
+}
 
-@*NOT: Buraya TempData ile sepet gelecek*@
+@if (TempData["AddToCartFailed"] != null)
+{
+    <div class="alert alert-danger">@TempData["AddToCartFailed"]</div>
+}
+
+@if (TempData["BuySuccess"] != null)
+{
+    <div class="alert alert-success">@TempData["BuySuccess"]</div>
+}
+
+@if (TempData["BuyFailed"] != null)
+{
+    <div class="alert alert-danger">@TempData["BuyFailed"]</div>
+}
+
 
 <!-- section title -->
 <div class="col-md-12">
@@ -57,27 +75,44 @@
                             <div class="product-img">
                                 @if (item.PicturesOfProduct.Count > 0)
                                 {
-                                    <img src="@item.PicturesOfProduct.FirstOrDefault().Picture" alt="@item.ProductName" width="100" height="250">
+                                    <img src="
+                     @item.PicturesOfProduct.FirstOrDefault().Picture"
+                                         alt="@item.ProductName"
+                                         width="100" height="250">
                                 }
                                 else
                                 {
-                                    <img src="~/ElectroTheme/img/image-not-found.png" alt="image-not-found" width="100" height="250">
+                                    <img src="~/ElectroTheme/img/image-not-found.png" alt="noimage" width="100" height="250">
                                 }
+
                                 @if (item.Discount > 0)
                                 {
                                     <div class="product-label">
-                                        <span class="sale">-@item.Discount %</span>
+                                        <span class="sale">-@item.Discount%</span>
                                     </div>
                                 }
-                                else
-                                {
 
-                                }
                             </div>
                             <div class="product-body">
                                 <p class="product-category">@item.CategoryOfProduct.CategoryName</p>
                                 <h3 class="product-name"><a href="#">@item.ProductName</a></h3>
-                                <h4 class="product-price"><del class="product-old-price">@item.Price ₺</del></h4>
+
+                                @if (item.Discount > 0)
+                                {
+                                    decimal salePrice =
+                                       item.Price -
+                           (item.Price * (decimal)(item.Discount) / 100);
+
+                        <h4 class="product-price">
+                            @salePrice ₺
+                            <del class="product-old-price">@item.Price ₺</del>
+                        </h4>
+                    }
+                    else
+                    {
+                        <h4 class="product-price">@item.Price ₺</h4>
+                    }
+
                                 <div class="product-rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -91,10 +126,13 @@
                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                 </div>
                             </div>
-                            @*<div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>*@
-                            <a href="/Home/AddToCard/@item.Id" class=" btn add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                            <div class="add-to-cart">
+                                @*<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>*@
+                                <a href="/Home/AddToCart/@item.Id"
+                                   class="add-to-cart-btn">
+                                    Sepete Ekle
+                                </a>
+                            </div>
                         </div>
                         <!-- /product -->
                     }

@@ -13,27 +13,39 @@
             {
                 <div class="product-widget">
                     @*<div class="product-img">
-                        <img src="./img/product01.png" alt="">
-                    </div>*@
+                            <img src="./img/product01.png" alt="">
+                        </div>*@
                     <div class="product-body">
                         <h3 class="product-name"><a href="#">@item.ProductName</a></h3>
-                        <h4 class="product-price"><span class="qty">@item.Quantity x </span>@item.Price ₺</h4>
+                        <h4 class="product-price">
+                            <span class="qty">@item.Quantity x </span>@item.Price ₺
+                        </h4>
                     </div>
                     <button class="delete"><i class="fa fa-close"></i></button>
                 </div>
-            }
-        </div>
-        @{ 
-            decimal total = Model.Sum(x => x.Price) == 0 ? 0 : Model.Sum(x => (x.Quantity * x.Price));
-        }
-        <div class="cart-summary">
-            <small>@Model.Sum(x=>x.Quantity).ToString() adet ürün var.</small>
-            <h5>TOPLAM : @total ₺</h5>
-        </div>
 
+            }
+
+
+        </div>
+        @{
+
+            decimal total =
+                Model.Sum(x => x.Price) == 0 ? 0 :
+                Model.Sum(x => (x.Quantity * x.Price));
+        }
+
+
+        <div class="cart-summary">
+            <small>@Model.Sum(x => x.Quantity).ToString() adet ürün vardır</small>
+            <h5>TOPLAM: @total ₺</h5>
+        </div>
         <div class="cart-btns">
             <a href="/Home/Cart">Sepete Git</a>
-            <a href="/Home/Buy">Alışverişi Tamamla<i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/Home/Buy">
+                Tamamla<i style="margin-left:5px"
+                          class="fa fa-arrow-circle-right"></i>
+            </a>
         </div>
     </div>
 </div>

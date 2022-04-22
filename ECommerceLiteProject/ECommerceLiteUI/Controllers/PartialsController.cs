@@ -28,16 +28,16 @@ namespace ECommerceLiteUI.Controllers
             TempData["ProductCount"] = myProductRepo.GetAll().Count();
             return PartialView("_PartialAdminSideBarProducts");
         }
-        public PartialViewResult ShoppingCard()
+        public PartialViewResult ShoppingCart()
         {
-            var shoppingCard = Session["ShoppingCard"] as List<ProductViewModel>;
-            if (shoppingCard==null)
+            var shoppingCart = Session["ShoppingCart"] as List<ProductViewModel>;
+            if (shoppingCart==null)
             {
-                return PartialView("_PartialShoppingCard", new List<ProductViewModel>());
+                return PartialView("_PartialShoppingCart", new List<ProductViewModel>());
             }
             else
             {
-                return PartialView("_PartialShoppingCard", shoppingCard);
+                return PartialView("_PartialShoppingCart", shoppingCart);
             }
         }
 
