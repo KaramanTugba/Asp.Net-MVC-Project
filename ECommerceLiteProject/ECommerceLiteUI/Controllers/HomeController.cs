@@ -13,6 +13,7 @@ using QRCoder;
 using System.Drawing;
 using ECommerceLiteBLL.Settings;
 using ECommerceLiteEntity.ViewModels;
+using ECommerceLiteUI.LogManaging;
 
 namespace ECommerceLiteUI.Controllers
 {
@@ -273,6 +274,7 @@ namespace ECommerceLiteUI.Controllers
 
                         //Temizlik yapılacak
                         Session["ShoppingCart"] = null;
+                        Logger.LogMessage($"{user.Name} {user.Surname} {orderDetailList.Sum(x=>x.TotalPrice)} liralık alışveriş yaptı.");
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -305,6 +307,7 @@ namespace ECommerceLiteUI.Controllers
             catch (Exception ex)
             {
                 //ex loglanacak
+                Logger.LogMessage($"Satın alma işleminde hata: "+ex.ToString(),"Home/Buy",MembershipTools.GetUser().Id);
                 TempData["BuyFailed"] = "Beklenmedik bir hata nedeniyle siparişiniz oluşturulamadı";
                 return RedirectToAction("Index", "Home");
             }
