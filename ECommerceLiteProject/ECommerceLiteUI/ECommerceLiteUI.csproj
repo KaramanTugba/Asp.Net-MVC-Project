@@ -185,6 +185,7 @@
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemVariableManaging\SystemVariable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE\build\config\postcss.config.js" />
@@ -2377,6 +2378,7 @@
     <Content Include="Views\Shared\_PartialAdminSidebar.cshtml" />
     <Content Include="Views\Shared\_PartialAdminSideBarProducts.cshtml" />
     <Content Include="Views\Shared\_PartialShoppingCart.cshtml" />
+    <Content Include="Views\Home\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

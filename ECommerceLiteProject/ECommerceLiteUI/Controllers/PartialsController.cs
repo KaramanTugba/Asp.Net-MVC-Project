@@ -28,18 +28,28 @@ namespace ECommerceLiteUI.Controllers
             TempData["ProductCount"] = myProductRepo.GetAll().Count();
             return PartialView("_PartialAdminSideBarProducts");
         }
+
         public PartialViewResult ShoppingCart()
         {
-            var shoppingCart = Session["ShoppingCart"] as List<ProductViewModel>;
-            if (shoppingCart==null)
+            var shoppingCart = Session["ShoppingCart"]
+                as List<ProductViewModel>;
+            if (shoppingCart == null)
             {
-                return PartialView("_PartialShoppingCart", new List<ProductViewModel>());
+                return PartialView("_PartialShoppingCart",
+                    new List<ProductViewModel>());
             }
             else
             {
+                foreach (var item in shoppingCart)
+                {
+                    item.GetProductPictures();
+                }
+                // yada linq foreach ile daha kısa işlem yapabilirsiniz.
+                //  shoppingCart.ForEach(x => x.GetProductPictures());
+
                 return PartialView("_PartialShoppingCart", shoppingCart);
             }
-        }
 
+        }
     }
 }

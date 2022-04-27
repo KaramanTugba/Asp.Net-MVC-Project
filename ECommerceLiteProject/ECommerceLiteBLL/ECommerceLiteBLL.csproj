@@ -73,6 +73,11 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -83,6 +88,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\MembershipTools.cs" />
@@ -99,6 +105,10 @@
     <ProjectReference Include="..\ECommerceLiteEntity\ECommerceLiteEntity.csproj">
       <Project>{bc16e683-02b0-467a-9e7b-fef5a9380b62}</Project>
       <Name>ECommerceLiteEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommerceLiteUtilities\ECommerceLiteUtilities.csproj">
+      <Project>{22570FA0-DA15-4919-A34F-E57637A9A4DD}</Project>
+      <Name>ECommerceLiteUtilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

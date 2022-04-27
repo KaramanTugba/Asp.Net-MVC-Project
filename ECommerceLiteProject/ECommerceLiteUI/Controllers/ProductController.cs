@@ -92,13 +92,12 @@ namespace ECommerceLiteUI.Controllers
             List<SelectListItem> subCategories = new List<SelectListItem>();
             //Linq
             //select * from Categories where BaseCategoryId is not null
-
-           GetSubCategories().ForEach(x => subCategories.Add(
-                    new SelectListItem()
-                    {
-                        Text = x.CategoryName,
-                        Value = x.Id.ToString()
-                    }));
+            GetSubCategories().ForEach(x => subCategories.Add(
+                                new SelectListItem()
+                                {
+                                    Text = x.CategoryName,
+                                    Value = x.Id.ToString()
+                                }));
 
             ViewBag.SubCategories = subCategories;
 
@@ -120,7 +119,6 @@ namespace ECommerceLiteUI.Controllers
                             Value = x.Id.ToString()
                         }));
 
-
                 ViewBag.SubCategories = subCategories;
 
                 if (!ModelState.IsValid)
@@ -129,7 +127,7 @@ namespace ECommerceLiteUI.Controllers
                     return View(model);
                 }
 
-                if (model.CategoryId <= 0 )
+                if (model.CategoryId <= 0)
                 {
                     ModelState.AddModelError("", "Ürüne ait kategori seçilmelidir!");
                     return View(model);
@@ -340,13 +338,10 @@ namespace ECommerceLiteUI.Controllers
 
         public List<Category> GetSubCategories()
         {
-            //Alt kategorisi olmasına rağmen Product ekleme sayfasındaki comboya gelen kategoriler var. Bu bugı bir metot ekleyerek çözümledik.
-            // Metotta kategorinin  idsi kategori tablosunda basecategoryId alanında geçiyorsa continue ile o kategoriyi atladık ve listemize almadık.
+            //Alt kategorisi olmasına rağmen Product ekleme sayfasındaki comboya gelen kategoriler var.Bu bugı bir metot ekleyerek çözümledik.
+            //Metotta kategorinin  idsi kategori tablosunda basecategoryId alanında geçiyorsa continue ile o kategoriyi atladık ve listemize almadık.
             //Böylece sadece çocuk kategoriler gelecektir.Ebeveyn kategoriler sayfaya gelemeyecektir.
 
-
-            //eğer caterpo.asq().where(x => x.bas == id)
-            //continue;
             List<Category> returnList = new List<Category>();
             var categoryList = myCategoryRepo.AsQueryable().Where(x => x.BaseCategoryId != null).ToList();
             foreach (var item in categoryList)
@@ -364,5 +359,6 @@ namespace ECommerceLiteUI.Controllers
 
             return returnList;
         }
+
     }
 }
